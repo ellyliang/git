@@ -1,6 +1,13 @@
 # 代码回滚场景梳理
 
-#### 场景步骤复现1：
+![imgage](image/git01.jpg)
+
+- **git revert**: 回滚到对应的commit-id，默认情况下回滚会产生一条新的记录。
+- **git reset**: 撤销指定commit-id，重新生成一个commit-id，执行git push推送到远程，不会对其他的commit-id造成影响。
+
+
+
+#### 场景1：
 
 - D：修改代码
 - M Merge D
