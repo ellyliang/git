@@ -9,20 +9,22 @@
 
 #### 场景1：
 
-- D：修改代码
-- M Merge D
-- D Merge M
+![imgage](image/git02.jpg)
+
+- F 修改代码
+- M Merge F
+- F Merge M
 
 #### 结果
  M回滚D，D Merge M, D之前修改的代码会没有
  
 #### 解决
 
-D revert 到指定分支 再合并
+D revert 到指定commit-id 再合并
 
 #### 如何回滚merge的分支
 
-MASTER
+Master
 
 ```bash
 git revert -m 1 [commit-id]
@@ -32,7 +34,7 @@ git revert -m 1 [commit-id]
 git push
 ```
 
-DEVELOP
+Feature
 
 ```bash
 git revert -n [commit-id]
