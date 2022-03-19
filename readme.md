@@ -22,13 +22,22 @@ D revert 到指定分支 再合并
 
 #### 如何回滚merge的分支
 
+MASTER
 
 ```bash
+git revert -m 1 [commit-id]
+// 假设在master分支
+// -m 1 是master
+// -m 2 是另外一个分支
+git push
+```
 
-git log // 查看提交信息
-git revert n
+DEVELOP
 
-
+```bash
+git revert -n [commit-id]
+// -n参数可以避免再次产生一条提交记录
+git push
 ```
 
 #### 场景步骤复现2：
