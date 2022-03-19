@@ -70,4 +70,26 @@ fatal: revert failed
 
 #### 回滚多次revert
 
+Master
+
+找到A分支的两次合并进行revert
+
+```bash
+git revert -m 1 [分支A的第一次commit-id]
+git revert -m 1 [分支A的第二次commit-id]
+```
+
+Feature A 
+
+```bash
+git revert -n [revert master revert分支A的第一次commit-id]
+git revert -n [revert master revert分支A的第二次commit-id]
+```
+
+
+
+
+
+
+
 
