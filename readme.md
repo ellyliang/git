@@ -2,11 +2,11 @@
 
 ![imgage](image/git01.jpg)
 
-- **git revert**: 回滚到对应的commit-id，默认情况下回滚会产生一条新的记录。
-- **git reset**: 撤销指定commit-id，重新生成一个commit-id，执行git push推送到远程，不会对其他的commit-id造成影响。
-- git revert是用一次新的commit来回滚之前的commit
-- git reset是直接删除指定的commit
-git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容
+- **git revert**回滚到对应的commit-id，默认情况下回滚会产生一条新的记录。
+- **git revert**是用一次新的commit来回滚之前的commit
+- **git reset**撤销指定commit-id，重新生成一个commit-id，执行git push推送到远程，不会对其他的commit-id造成影响。
+- **git reset**是直接删除指定的commit。**git reset**是把HEAD向后移动了一下，而**git revert**是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容
+- 如果回退分支的代码以后还需要的情况则使用**git revert**， 如果分支是提错了没用的并且不想让别人发现这些错误代码，则使用**git reset**
 
 ### 场景1：
 
@@ -80,7 +80,7 @@ git revert -n [revert master revert分支A的第一次commit-id]
 git revert -n [revert master revert分支A的第二次commit-id] 
 ```
 
-### 如果master不需要某部分的提交记录，可以选择使用reset 撤销
+### 使用reset撤销代码
 
 ```bash
 git reset --hard [commit-id]
@@ -104,9 +104,9 @@ HEAD指针指向当前分支（只有一个分支的情况下会指向master，�
 
 ```bash
 // 撤销前一个版本
-git revert HEAD
+git revert/reset HEAD
 // 撤销前前一个版本
-git revert HEAD^
+git revert/reset HEAD^
 ```
 
 #### 3.git revert解释
@@ -114,6 +114,10 @@ git revert HEAD^
 git revert --help
 ```
 
+### 参考文献
+- [面试官：说说你对Git Reset 和 Git Revert 的理解？区别？](https://www.51cto.com/article/678497.html)
+- [Git：git-revert的用法总结](https://blog.csdn.net/chaiyu2002/article/details/81181134?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-2-81181134.pc_agg_new_rank&utm_term=git+revert%E5%8F%82%E6%95%B0&spm=1000.2123.3001.4430)
+- [Git恢复之前版本的两种方法reset、revert（图文详解）](https://blog.csdn.net/yxlshk/article/details/79944535)
 
 
 
