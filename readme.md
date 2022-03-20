@@ -4,6 +4,9 @@
 
 - **git revert**: 回滚到对应的commit-id，默认情况下回滚会产生一条新的记录。
 - **git reset**: 撤销指定commit-id，重新生成一个commit-id，执行git push推送到远程，不会对其他的commit-id造成影响。
+- git revert是用一次新的commit来回滚之前的commit
+- git reset是直接删除指定的commit
+git reset 是把HEAD向后移动了一下，而git revert是HEAD继续前进，只是新的commit的内容和要revert的内容正好相反，能够抵消要被revert的内容
 
 ### 场景1：
 
@@ -100,7 +103,10 @@ fatal: revert failed
 HEAD指针指向当前分支（只有一个分支的情况下会指向master，而master是指向最新提交）.
 
 ```bash
+// 撤销前一个版本
 git revert HEAD
+// 撤销前前一个版本
+git revert HEAD^
 ```
 
 #### 3.git revert解释
